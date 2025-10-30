@@ -1,26 +1,30 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* ===== Fondo estilo Digits ===== */
+html, body { min-height: 100%; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: radial-gradient(1200px 600px at 15% -10%, #dff2ff 0%, rgba(223,242,255,0) 60%),
+              radial-gradient(1000px 500px at 90% 0%, #eae4ff 0%, rgba(234,228,255,0) 55%),
+              linear-gradient(180deg, #eef6ff 0%, #eef8ff 35%, #f4f6ff 100%);
+  background-attachment: fixed;
+}
+
+/* Tarjetas base */
+.card-surface{
+  background:#fff;
+  border:1px solid #e7ecf3;
+  border-radius:24px;
+  box-shadow:0 6px 16px rgba(20,32,63,0.06), 0 1px 0 rgba(20,32,63,0.02);
+}
+
+/* Halo suave tipo Digits para KPIs */
+.digits-kpi{ position:relative; }
+.digits-kpi::after{
+  content:"";
+  position:absolute; top:-32px; right:-32px;
+  width:150px; height:150px;
+  background:linear-gradient(135deg, rgba(34,211,163,.32) 0%, rgba(96,165,250,.28) 50%, rgba(139,92,246,.25) 100%);
+  filter:blur(28px);
+  opacity:.35; border-radius:50%;
+  pointer-events:none;
 }
